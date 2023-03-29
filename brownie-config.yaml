@@ -1,0 +1,23 @@
+dependencies:
+  #-<organization/repo>@<version>
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+dotenv: .env
+networks:
+  default: development
+  development:
+    verify: False
+    dev_deployment_artifacts: True
+  mainnet-fork-dev:
+    eth_usd_price_feed: '0x694AA1769357215DE4FAC081bf1f309aDC325306' #i got this address from https://docs.chain.link/data-feeds/price-feeds/addresses and i chose ETH/USD
+    verify: False
+  goerli:
+    eth_usd_price_feed: '0xc3224a0DCAb03ca5dB6dbD1Aeb994De30670bA55'
+    verify: True
+  ganache-local1:
+    verify: False
+wallets:
+  from_key: ${PRIVATE_KEY}
